@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cherry
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1159112683
+    locked: 0
+  - name: Item
+    uniqueID: 3057986107
     locked: 0
