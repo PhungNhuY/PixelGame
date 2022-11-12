@@ -49,8 +49,14 @@ TagManager:
   - name: Player
     uniqueID: 1159112683
     locked: 0
+  - name: Trap1
+    uniqueID: 597482055
+    locked: 0
   - name: Terrain
     uniqueID: 1279590115
+    locked: 0
+  - name: Trap2
+    uniqueID: 1072732317
     locked: 0
   - name: Item
     uniqueID: 3057986107
