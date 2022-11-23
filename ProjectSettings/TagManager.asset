@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cherry
   - Trap
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -57,6 +58,9 @@ TagManager:
     locked: 0
   - name: Trap2
     uniqueID: 1072732317
+    locked: 0
+  - name: Enemy
+    uniqueID: 3764625295
     locked: 0
   - name: Item
     uniqueID: 3057986107
