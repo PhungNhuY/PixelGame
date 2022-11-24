@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * moveSpeed);
         }else{
             transform.position += new Vector3(0, fallSpeed, 0);
-            transform.Rotate(0, 0, Time.deltaTime * -20);
+            transform.Rotate(0, 0, Time.deltaTime * -120);
             timer += Time.deltaTime;
             fallSpeed += fallPlus;
             if(timer>1){
