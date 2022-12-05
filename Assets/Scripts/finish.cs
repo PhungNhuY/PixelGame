@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class finish : MonoBehaviour
 {
@@ -11,14 +13,28 @@ public class finish : MonoBehaviour
         finishSoundEffect = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.name == "Player"){
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Player")
+        {
             finishSoundEffect.Play();
-            NextLevel();
+            Wait(1, NextLevel);
+            // NextLevel();
         }
     }
 
-    private void NextLevel(){
+    private void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
+    public void Wait(float seconds, Action action)
+    {
+        StartCoroutine(_wait(seconds, action));
+    }
+    IEnumerator _wait(float time, Action callback)
+    {
+        yield return new WaitForSeconds(time);
+        callback();
     }
 }
