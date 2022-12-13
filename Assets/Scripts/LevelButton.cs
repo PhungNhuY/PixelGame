@@ -8,6 +8,7 @@ public class LevelButton : MonoBehaviour
     public void OnClick()
     {
         SceneManager.LoadScene($"level_{LevelIndex}");
+        PlayerPrefs.SetInt("CurrentLevel", LevelIndex);
         GameManager.instance.uICanvas.PanelInGame.SetActive(true);
     }
     // Start is called before the first frame update

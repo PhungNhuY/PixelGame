@@ -19,7 +19,7 @@ public class finish : MonoBehaviour
         {
             finishSoundEffect.Play();
             Wait(1, NextLevel);
-            // NextLevel();
+            GameManager.instance.WinGame();
         }
     }
 

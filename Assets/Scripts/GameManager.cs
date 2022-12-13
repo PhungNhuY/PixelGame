@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    //public int levelIndex;
     public UICanvas uICanvas;
     public static GameManager instance;
 
@@ -19,10 +18,41 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
     }
-    public void OnClickPlay()
+
+    public void ReturnHome()
     {
         SceneManager.LoadScene("Lobby");
         uICanvas.PanelHome.SetActive(false);
+        uICanvas.PanelInGame.SetActive(false);
+    }
+
+    public void PlayCurrentLevel()
+    {
+        uICanvas.PanelHome.SetActive(false);
+        uICanvas.PanelInGame.SetActive(true);
+        var currentLevelIndex = PlayerPrefs.GetInt("CurrentLevel");
+        SceneManager.LoadScene($"level_{currentLevelIndex}");
+        GameManager.instance.uICanvas.PanelInGame.SetActive(true);
+    }
+
+    public void PlayLevelByIndex(int levelIndex)
+    {
+        SceneManager.LoadScene($"level_{levelIndex}");
+        GameManager.instance.uICanvas.PanelInGame.SetActive(true);
+    }
+
+    public void NextLevel()
+    {
+        var currentLevelIndex = PlayerPrefs.GetInt("CurrentLevel");
+        currentLevelIndex++;
+        PlayerPrefs.SetInt("CurrentLevel", currentLevelIndex);
+        PlayCurrentLevel();
+    }
+
+    public void OnClickPlay()
+    {
+        PlayCurrentLevel();
+        
     }
     public void Start()
     {
@@ -30,8 +60,17 @@ public class GameManager : MonoBehaviour
     }
     public void OnClickQuit()
     {
-        uICanvas.PanelInGame.SetActive(false);
-        uICanvas.PanelHome.SetActive(false);
-        OnClickPlay();
+        ReturnHome();
+    }
+
+    public void WinGame()
+    {
+        NextLevel();
+    }
+
+    public void LoseGame()
+    {
+
     }
 }
+
