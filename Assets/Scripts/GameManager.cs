@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
         uICanvas.PanelInGame.SetActive(false);
     }
 
+    public void QuitGame(){
+        Application.Quit();
+    }
+
     public void PlayCurrentLevel()
     {
         uICanvas.PanelHome.SetActive(false);
