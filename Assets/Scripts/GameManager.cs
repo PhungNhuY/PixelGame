@@ -69,7 +69,14 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        NextLevel();
+        if (PlayerPrefs.GetInt("CurrentLevel")==4)
+        {
+            SceneManager.LoadScene(7);
+        }
+        else
+        {
+            NextLevel();
+        }
     }
 
     public void LoseGame()
